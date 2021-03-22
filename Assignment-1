@@ -1,0 +1,45 @@
+Question1.	Select the detail of the employee whose name start with P.
+SELECT * FROM Employee
+WHERE EmpName Like ‘p%’;
+
+Question2.	How many permanent candidate take salary more than 5000.
+SELECT COUNT(Salary) AS Salary from EmpSalary
+WHERE Ispermanent = ‘YES’ and Salary>5000;
+
+Question3.	Create a view for employees whose salary is above 5000 under each department.
+CREATE VIEW [ EMPSALARY Greater than 5000] AS
+SELECT t1.EmpName, t2.Empid, t2.Salary, t3.DeptName
+FROM Employee As t1 INNER JOIN EmpSalary AS t2
+ON t1.Empid = t2.Empid
+INNER JOIN 
+EmpDept AS t3
+ON t1.Epid = t3.DeptHead;
+QUERY: SELECT * FROM [ EMPSALARY Greater than 5000]
+WHERE Salary>5000
+ORDER BY DeptName;
+
+Question4.	Select the details of the employee who work either for department E-104 or E-102.
+SELECT * FROM Employee
+Where Department = ‘E104’ or Department = ‘E102’;
+
+Question5.	Select the detail of employee whose email Id is in gmail.
+SELECT * FROM Employee
+WHERE EmailId LIKE ‘%@gmail.com’;
+
+Question6.	What is total salary that is paid to permanent employees
+SELECT SUM(Salary) AS Salary From EmpSalary
+WHERE IsPermenant = ‘YES’;
+
+Question7.	select the name of the employee whose name's 3rd character is 'h'
+SELECT EmpName AS Name From Employee 
+WHERE EmpName= ‘__h%’
+
+
+Question 8 & 9: I have some doubts regarding this questions. 
+
+Question 10: Difference Between Left JOIN and Full Outer JOIN.
+While considering Two tables say Left Table and Right Table
+Left join will help you to return all the rows from the left table and also returns the matched rows from the right table. If in a left table, there are no matched rows then columns of the table on the right will return Null Values.
+Whereas in the Full outer join it will return all the rows from both the tables. And if there are no unmatched rows in the left table then the columns of the right table will return Null values. Similarly when there are no matched rows in the right table then from the left table it will return Null values for the unmatched columns.
+
+
